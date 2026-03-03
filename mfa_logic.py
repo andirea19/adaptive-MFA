@@ -5,7 +5,10 @@ import time
 # Der ist noralerweise einzigartig, aber ich bin ja nur eine Person
 
 secret = pyotp.random_base32()
-print("Mein geheimer Schlüssel:", secret)   
+print("Mein geheimer Schlüssel:", secret) 
+
+pyotp.random_hex()  # returns a 40-character hex-encoded secret
+# Hex-encodierte Geheimnisse sind nicht so üblich, aber ich wollte es mal ausprobieren
 
 totp = pyotp.TOTP('base32secret3232')
 totp.now() # => '492039'
