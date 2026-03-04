@@ -17,3 +17,15 @@ def generate_fake_data():
     return context
 
 print(f"Aktueller Login-Versuch: {generate_fake_data()}")
+
+# ich lege die generierten Daten in einer Liste ab, damit ich sie später analysiert werden kann
+
+fake_data_list = []
+for _ in range(10):
+    fake_data_list.append(generate_fake_data())
+    time.sleep(1) 
+print("Gesammelte gefälschte Daten:")
+for data in fake_data_list:
+    print(data)     
+
+

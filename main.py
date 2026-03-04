@@ -1,12 +1,16 @@
 # ich versuche, die Authentifizierungslogik mit den gefälschten Daten zu kombinieren
 
+from multiprocessing import context
+
 import pyotp
-import time 
 import datetime
 
 # Ich importiere die Funktion, um gefälschte Daten zu haben
 from fake_date import generate_fake_data
 
+# Ich binden den Logger ein, damit ich die Login-Versuche protokollieren kann
+from logger import SecurityLogger
+import logger
 
 SECRET = pyotp.random_base32()
 totp = pyotp.TOTP(SECRET)
@@ -52,6 +56,7 @@ def start_login():
 if __name__ == "__main__":
     start_login()   
 
-
+logger = SecurityLogger()
+logger.log_attempt(context, risk, True)
 
 
