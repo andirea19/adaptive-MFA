@@ -1,0 +1,16 @@
+# Python-Müll (temporäre Dateien)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Testlogs
+login_logs.csv
+security_report.png
+
+# Virtuelle Umgebungen
+venv/
+.env
+
+# Betriebssystem-Dateien (brauchen wir nicht im Repo)
+.DS_Store
+Thumbs.db
