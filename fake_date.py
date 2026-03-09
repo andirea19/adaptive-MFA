@@ -5,7 +5,6 @@ import datetime
 
 def generate_context():
     """Erzeugt einen zufälligen Login-Kontext für die Risiko-Analyse."""
-    # Wir nehmen eine Mischung aus deinen Städten
     locations = ['Sofia', 'Vienna', 'Tokyo', 'Berlin', 'Unbekannt']
     
     return {
