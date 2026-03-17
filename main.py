@@ -25,10 +25,10 @@ def start_login():
     print(f"Standort: {context['location']}, Stunde: {context['hour']}")
     print(f"Risiko-Score: {risk_score}")
     
-    # 3. Loggen
+    # 3. Loggen der Ergebnisse
     logger.log_attempt(context, risk_score, mfa_needed)
     
-    # 4. MFA-Logik
+    # 4. MFA-Logik abfragen
     if mfa_needed:
         print("Code erforderlich!")
     else:
