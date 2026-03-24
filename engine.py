@@ -38,7 +38,27 @@ class RiskEngine:
             
         # Score deckeln bei 10
         return min(score, 10)
-
+    
+    
     def is_mfa_required(self, score):
         """Entscheidet basierend auf dem Schwellenwert, ob MFA nötig ist."""
         return score >= self.threshold
+    
+ # Hier möchte ich die AI-Logik integrieren
+def calculate_ai_score(self, context):
+    score = self.calculate_score(context)
+    ai_score = 0
+    if self.model:
+        # Ich bereiten die Daten für das Modell vor
+        loc_mapping = {'Berlin': 1, 'Sofia': 2, 'Vienna': 3, 'Tokyo': 4, 'Unbekannt': 5}
+        loc_code = loc_mapping.get(context['location'], 5)
+        
+        features = [[context['hour'], loc_code, int(context['device_known'])]]
+        
+        # Isolation Forest gibt -1 für Anomalie zurück
+        prediction = self.model.predict(features)
+        if prediction[0] == -1:
+            ai_score = 4  # Die AI hat ein ungewöhnliches Muster erkannt
+
+    total_score = min(score + ai_score, 10)
+    return total_score
