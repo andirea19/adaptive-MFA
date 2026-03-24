@@ -1,13 +1,26 @@
 import datetime
+import os
+
+import joblib
 
 class RiskEngine:
-    def __init__(self, threshold=50):
+    def __init__(self, threshold=5):
         self.threshold = threshold
+        self.model_path = 'security_model.pkl'
+        self.model = self._load_model()
+
+    def _load_model(self):
+        #Versucht das AI-Modell zu laden.
+        if os.path.exists(self.model_path):
+            try:
+                return joblib.load(self.model_path)
+            except:
+                return None
+        return None
 
     def calculate_score(self, context):
-        """
-        Analysiert den Kontext und gibt einen Risiko-Score zwischen 0 und 10 zurück.
-        """
+        #Analysiert den Kontext und gibt einen Risiko-Score zwischen 0 und 10 zurück.
+
         score = 0
         
         # Regel 1: Unbekannter Standort

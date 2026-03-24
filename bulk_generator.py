@@ -24,4 +24,4 @@ def run_simulation(amount=10):
     print("\n Erfolg! Alle Einträge wurden in 'login_logs.csv' gespeichert.")
 
 if __name__ == "__main__":
-    run_simulation(20)
+    run_simulation(200)
