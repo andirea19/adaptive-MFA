@@ -38,7 +38,8 @@ def generate_context():
     }
 
 def generate_context():
-    """Erzeugt einen zufälligen Login-Kontext für die Risiko-Analyse."""
+    # Erzeugt einen zufälligen Login-Kontext für die Risiko-Analyse
+    
     locations = ['Sofia', 'Vienna', 'Tokyo', 'Berlin', 'Unbekannt']
     heute = datetime.datetime.now()
     zufalls_tage = random.randint(0, 30)
