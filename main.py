@@ -15,20 +15,20 @@ for _ in range(100):
 def start_login():
     print("\n---Mein tolles Smart Auth System ---")
     
-    # 1. Daten generieren (jetzt in der externen Datei)
+    # 1 Daten generieren
     context = generate_context()
     
-    # 2. Risiko berechnen
+    # 2 Risiko berechnen
     risk_score = engine.calculate_score(context)
     mfa_needed = engine.is_mfa_required(risk_score)
     
     print(f"Standort: {context['location']}, Stunde: {context['hour']}")
     print(f"Risiko-Score: {risk_score}")
     
-    # 3. Loggen der Ergebnisse
+    # 3 Loggen der Ergebnisse
     logger.log_attempt(context, risk_score, mfa_needed)
     
-    # 4. MFA-Logik abfragen
+    # 4 MFA-Logik abfragen
     if mfa_needed:
         print("Code erforderlich!")
     else:
